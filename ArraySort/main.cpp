@@ -7,7 +7,12 @@
 //
 
 #include <iostream>
+#include "test_sort.h"
+#include "sort.h"
 
 int main(int argc, const char * argv[]) {
+    test_sort_int(qsort);
+
+    system("pause");
     return 0;
 }

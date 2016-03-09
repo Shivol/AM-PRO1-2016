@@ -1,10 +1,10 @@
 
 #include <iostream>
-// библиотека для работы со временем
+// ctime — библиотека для работы со временем
 #include <ctime>
 #include "sort.h"
 
-// Функция быстрой сортировки:
+// Рекурсивная функция быстрой сортировки:
 // first - указатель на первый элемент массива,
 // last  - указатель на последний элемент массива.
 void qsort(int *first, int *last)
@@ -31,14 +31,13 @@ void qsort(int *first, int *last)
 
 }
 
-// Перегрузка qsort для стандартного вызова:
-// a - масиив,
-// n - число элементов массива.
-void qsort(int *a, int n)
+//
+void qsort(int *a, const size_t n)
 { 
     qsort(a, a + n-1);
 }
 
+//
 double sort_time_in_seconds_for( sort_int sort, int* a, const size_t n)
 {
 

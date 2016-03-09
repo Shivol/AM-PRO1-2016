@@ -10,10 +10,18 @@
 #define test_sort_hpp
 #pragma once
 
-#include <stdlib.h>
 #include "sort.h"
-//объявление типа функции сортировки массива целых чисел
-typedef void(* const sort_int)(int *, const size_t);
 
-bool test_sort( sort_int sort );
+// Функция тестирования функций сортировки
+// Параметры:
+//     sort — указатель на функцию;
+//     sort_name — имя тестируемой функции.
+// Результат:
+// true, если все тесты завершились удачно.
+bool test_name_sort_int( sort_int sort, char* sort_name );
+
+// Немного магии препроцессора и можно вызвать 
+// функцию тестирования без указания имени тестируемой функции
+#define test_sort_int(sort) test_name_sort_int(sort, #sort)
+
 #endif /* test_sort_hpp */
