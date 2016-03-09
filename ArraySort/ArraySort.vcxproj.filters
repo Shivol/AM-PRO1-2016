@@ -26,10 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sort.h">
+    <ClInclude Include="test_sort.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="test_sort.h">
+    <ClInclude Include="sort_time.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

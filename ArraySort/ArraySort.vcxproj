@@ -123,7 +123,7 @@
     <ClCompile Include="test_sort.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sort.h" />
+    <ClInclude Include="sort_time.h" />
     <ClInclude Include="test_sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,9 +1,6 @@
 //
-//  sort.h
-//  array_sort
-//
-//  Created by Илья Лошкарёв on 06.03.16.
-//  Copyright © 2016 Илья Лошкарёв. All rights reserved.
+// Лабораторная №5. Сортировкии, рекурсия в массивах.
+// sort_time.h
 //
 
 #ifndef sort_h
@@ -12,17 +9,18 @@
 
 #include <cassert>
 
-/* Объявление "функционального типа".
+// Объявление "функционального типа".
+typedef void(* const sort_int)(int *, const size_t);
+/*  
    Теперь указатель на функции вида
-     void(int *, const size_t)
+    void f(int *, const size_t)
    можно передавать как sort_int
 */
-typedef void(* const sort_int)(int *, const size_t);
 
 // Шаблонный swap для указателей
 // из func_l3
 template <typename T>
-void swap( T *a, T *b)
+void swap_ptr( T *a, T *b)
 {
     // проверка нулевого указателя
     assert(a != nullptr);
