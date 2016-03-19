@@ -32,6 +32,9 @@
     <ClInclude Include="test_matrix.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="crtdynmem.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test_matrix.txt" />

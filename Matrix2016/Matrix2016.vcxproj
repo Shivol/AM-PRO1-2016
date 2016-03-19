@@ -123,6 +123,7 @@
     <ClCompile Include="test_matrix.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="crtdynmem.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="test_matrix.h" />
   </ItemGroup>
