@@ -12,7 +12,7 @@
 //      n - количество элементов в массиве
 // Если в файле оказывается меньше элементов, чем указанно,
 // генерируется исключение char*.
-void readFromText(const char* fname, int *&a, size_t &n);
+void read_from_text(const char* fname, int *&a, size_t &n);
 
 // void findZeros(const int* a, const int n, int &first, int &last)
 // Функция поиска первого и последнего вхождения ноля в массиве.
@@ -24,7 +24,7 @@ void readFromText(const char* fname, int *&a, size_t &n);
 //      last - последнее
 // Если в массиве один ноль, first==last.
 // Если в массиве нет нолей, функция генерирует исключение char*.
-void findZeros(const int* a, const size_t n, int &first, int &last);
+void find_zeros(const int* a, const size_t n, size_t &first, size_t &last);
 
 
 // void duplicateBetweenZeros(int* &a, int &n)
@@ -34,5 +34,5 @@ void findZeros(const int* a, const size_t n, int &first, int &last);
 //      n - количество элементов в массиве
 // Если в массиве не нолей, либо нет элементов для дублирования,
 // то функция генерирует исключение char*.
-void duplicateBetweenZeros(int *&a, size_t &n);
+void duplicate_between_zeros(int *&a, size_t &n);
 

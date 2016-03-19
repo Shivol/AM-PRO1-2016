@@ -22,8 +22,8 @@ int main()
     int n;
     cout<<"Введите массив целых чисел, содержащий ноль"<<endl;
 
-    getArray(a,n);
-    printArray(a,n);
+    read(a,n);
+    print(a,n);
 
     try {
         cout<< "Произведение элементов после первого ноля = "

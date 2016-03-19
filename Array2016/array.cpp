@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void getArray(int *a, int &n)
+void read(int *a, int &n)
 {
     cout<<"¬ведите N<"<<max_N<<endl;
     do {
@@ -20,7 +20,7 @@ void getArray(int *a, int &n)
         cin>>a[i];
 }
 
-void printArray(const int *a, int n)
+void print(const int *a, int n)
 {
     assert(n>0 && n<max_N);
     for(int i=0; i<n; i++)

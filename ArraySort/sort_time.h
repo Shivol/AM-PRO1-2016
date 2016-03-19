@@ -3,7 +3,10 @@
 // sort_time.h
 //
 
-#ifndef sort_h
+#ifndef sort_h 
+// Ключи гарантирующий 
+// единственное вхождение файла
+// в результирующий код
 #define sort_h
 #pragma once
 

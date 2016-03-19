@@ -8,10 +8,10 @@
 const int max_N = 100;
 
 // Ввод массива
-void getArray( int *a, int &n );
+void read( int *a, int &n );
 
 // Вывод массива
-void printArray( const int *a, int n );
+void print( const int *a, int n );
 
 // Произведение всех положительных чисел, после первого ноля.
 // Если положительных чисел нет - возвращает 0.

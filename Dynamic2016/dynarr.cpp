@@ -6,7 +6,7 @@
 #include <cassert>
 #include "dynarr.h"
 
-void findZeros(const int* a, const size_t n, int &first, int &last)
+void find_zeros(const int* a, const size_t n, size_t &first, size_t &last)
 {
     assert(a != nullptr);
     assert(n > 0);
@@ -25,13 +25,13 @@ void findZeros(const int* a, const size_t n, int &first, int &last)
     assert(last != -1);
 }
 
-void duplicateBetweenZeros(int *&a, size_t &n)
+void duplicate_between_zeros(int *&a, size_t &n)
 {
     assert(a != nullptr);
     assert(n > 0);
 
-    int f = 0, l = 0;
-    findZeros(a, n, f, l);
+    size_t f = 0, l = 0;
+    find_zeros(a, n, f, l);
     if (f == l) throw "Один ноль в массиве";
     if (f + 1 == l) return;  // нечего дублировать
 
@@ -56,7 +56,7 @@ void duplicateBetweenZeros(int *&a, size_t &n)
     a = b;
 }
 
-void readFromText(const char* fname, int *&a, size_t &n)
+void read_from_text(const char* fname, int *&a, size_t &n)
 {
     assert(fname != nullptr);
     using namespace std;
