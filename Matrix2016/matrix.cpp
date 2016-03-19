@@ -79,6 +79,7 @@ void read_from_text(const char *fname, double **&a, size_t &m, size_t &n)
 //
 void delete_matrix(double ** const a, const size_t m, const size_t n)
 {
+    assert(a != nullptr);
     for (size_t i = 0; i < m; ++i)
         delete[] a[i];
     delete[] a;
