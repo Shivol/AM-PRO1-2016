@@ -14,16 +14,19 @@ using namespace std;
 
 bool test_is_equal(const char* fname)
 {
-    // равенство статических матриц
+    // Равенство статических матриц
+    
     matrix a, b;
     size_t ma, na, mb, nb;
 
+    // читаем одну и ту же матрицу дважды
     read_from_text(fname, a, ma, na);
     read_from_text(fname, b, mb, nb);
 
     assert(is_equal(a, b, ma, na));
 
-    // равенство динамических матриц
+    // Равенство динамических матриц
+    
     double **aa = nullptr, **bb = nullptr;
 
     read_from_text(fname, aa, ma, na);
@@ -31,21 +34,30 @@ bool test_is_equal(const char* fname)
 
     assert(is_equal(aa, bb, ma, na));
 
+    // освобождение памяти - обязательно!
     delete_matrix(aa, ma, na);
     delete_matrix(bb, mb, nb);
 
-    // не равенство статических матриц
+    // Не равенство статических матриц
+    
     ifstream fin(fname); 
-       
+
+    // проверяем, что файл был открыт
+    assert(fin.is_open());
+    
+    // читаем матрицы подряд из входного потока
     read_from_text(fin, a, ma, na);
     read_from_text(fin, b, mb, nb);
 
     assert(ma == mb && na == nb);
     assert(!is_equal(a, b, ma, na));
-
+    
+    // освобождаем файл
     fin.close();
 
-    // не равенство динамических матриц
+    // Не равенство динамических матриц
+
+    // открываем файл заново
     fin.open(fname);
 
     read_from_text(fin, aa, ma, na);
