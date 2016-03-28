@@ -18,7 +18,7 @@ int main()
 
     char str[Max_Len];
     
-    cout << "¬ведите строку: ";
+    cout << "¬ведите строку(без кириллицы): ";
     
     cin.getline(str, Max_Len);
 
