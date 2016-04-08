@@ -14,7 +14,7 @@
 #include "rstring.h"
 
 
-char * replace (const char *source, const char *from, const char* to)
+char *replace (const char *source, const char *from, const char* to)
 {
     assert(source);
     assert(from);    

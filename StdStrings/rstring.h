@@ -11,7 +11,7 @@ using std::string;
 //    from - строка которую нужно заменить,
 //    to - строка которую необходимо подставить,
 // Возвращает результат в динамической памяти.
-char * replace ( const char *source, const char *from, const char* to);
+char *replace ( const char *source, const char *from, const char* to);
 
 // Функция замены всех вхождений подстроки в строку.
 // Параметры:
