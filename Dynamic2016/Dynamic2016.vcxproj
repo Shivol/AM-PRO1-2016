@@ -120,10 +120,12 @@
   <ItemGroup>
     <ClCompile Include="dynarr.cpp" />
     <ClCompile Include="dynarrdbg.cpp" />
+    <ClCompile Include="test_dynarr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="crtdynmem.h" />
     <ClInclude Include="dynarr.h" />
+    <ClInclude Include="test_dynarr.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="array.txt" />

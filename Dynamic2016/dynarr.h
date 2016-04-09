@@ -1,9 +1,7 @@
 //
 // Лабораторная работа №4. Динамические массивы.
-// Чтение из текстового файла. 
 //
 
-// void readFromText(const char* fname, int *&a, int &n)
 // Функция чтения массива целых чисел из текстового файла с заданным именем.
 // Входные параметры
 //      fname - имя файла
@@ -14,7 +12,6 @@
 // генерируется исключение char*.
 void read_from_text(const char* fname, int *&a, size_t &n);
 
-// void findZeros(const int* a, const int n, int &first, int &last)
 // Функция поиска первого и последнего вхождения ноля в массиве.
 // Входные параметры:
 //      a - указатель на начало массива
@@ -27,7 +24,6 @@ void read_from_text(const char* fname, int *&a, size_t &n);
 void find_zeros(const int* a, const size_t n, size_t &first, size_t &last);
 
 
-// void duplicateBetweenZeros(int* &a, int &n)
 // Функция дублироания элементов массива,
 // находящихся между первым и последним нолем.
 //      a - указатель на начало массива

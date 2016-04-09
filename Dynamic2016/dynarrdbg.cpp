@@ -8,6 +8,7 @@
 
 #include "crtdynmem.h"
 #include "dynarr.h"
+#include "test_dynarr.h"
 #include <iostream>
 
 
@@ -16,6 +17,7 @@ using namespace std;
 
 int main()
 {
+    test_dynarr_full();
     setlocale(LC_ALL, "Rus");
     cout << "ֲגוהטעו טלÿ פאיכא: ";
     char fname[20];

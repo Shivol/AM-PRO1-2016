@@ -28,4 +28,4 @@ bool test_name_sort_int( sort_int sort, char* sort_name );
                             содержащей имя параметра макроса
 */
 
-#endif /* test_sort_hpp */
+#endif /* test_sort_h */
