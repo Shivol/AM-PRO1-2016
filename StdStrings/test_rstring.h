@@ -1,4 +1,8 @@
+//
+// Лабораторная работа №9. Обработка строк
+//
 #pragma once
+
 // Тест для 
 // char * replace (const char *source, const char *from, const char* to);
 // Проверяет 

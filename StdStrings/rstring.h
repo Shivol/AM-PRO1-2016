@@ -1,6 +1,7 @@
 //
 // Лабораторная работа №9. Обработка строк
 //
+
 #pragma once
 #include <string>
 using std::string;
