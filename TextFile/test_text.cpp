@@ -42,6 +42,9 @@ bool test_print_len(const char *input, const char *output)
     // удалим временный файл
     remove(test_out_name);
 
+#ifndef _DEBUG
+    cerr << "test print_len : OK" << endl;
+#endif /* _DEBUG */
     return true;
 }
 
@@ -63,5 +66,8 @@ bool test_is_equal_text(const char *eqfile1, const char *eqfile2, const char *di
 
     assert(!is_equal_text(eqfile1, diffile));
 
+#ifndef _DEBUG
+    cerr << "test is_equal_text : OK" << endl;
+#endif /* _DEBUG */
     return true;
 }
