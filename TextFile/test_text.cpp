@@ -73,7 +73,7 @@ bool test_is_equal_text(const char *filename1, const char *filename2)
 
 bool test_full_text()
 {
-    const char *input = "jabberwocky.txt";
+    const char *input = "jabberwoc1ky.txt";
     const char *output = "jabberwocky_test.txt";
     return test_is_equal_text(input, output) 
         && test_print_len(input, output);
