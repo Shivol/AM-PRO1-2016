@@ -12,6 +12,7 @@
 
 using namespace std;
 
+//
 void print_len(const char *filename)
 {
     assert(filename);
@@ -29,7 +30,7 @@ void print_len(const char *filename)
     fin.close();
 }
 
-
+//
 bool is_equal_text(const char *filename1, const char *filename2)
 {
     assert(filename1);

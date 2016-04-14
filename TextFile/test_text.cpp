@@ -13,11 +13,14 @@
 
 using namespace std;
 
+//
 bool test_print_len(const char *input, const char *output)
 {
     assert(input);
     assert(output);
     
+
+    // создаём временный файл
     const char* test_out_name = "test_print_len.tmp";
     ofstream test_out(test_out_name);
 
@@ -48,26 +51,30 @@ bool test_print_len(const char *input, const char *output)
     return true;
 }
 
-bool test_is_equal_text(const char *eqfile1, const char *eqfile2, const char *diffile)
+//
+bool test_is_equal_text(const char *filename1, const char *filename2)
 {
-    assert(eqfile1);
-    assert(eqfile2);
-    assert(diffile);
+    assert(filename1);
+    assert(filename2);
 
-    assert(is_equal_text(eqfile1, eqfile1));
+    assert(is_equal_text(filename1, filename1));
     
-    assert(is_equal_text(eqfile2, eqfile2));
+    assert(is_equal_text(filename2, filename2));
 
-    assert(is_equal_text(diffile, diffile));
+    assert(!is_equal_text(filename2, filename1));
 
-    assert(is_equal_text(eqfile1, eqfile2));
-
-    assert(!is_equal_text(eqfile2, diffile));
-
-    assert(!is_equal_text(eqfile1, diffile));
+    assert(!is_equal_text(filename1, filename2));
 
 #ifndef _DEBUG
     cerr << "test is_equal_text : OK" << endl;
 #endif /* _DEBUG */
     return true;
+}
+
+bool test_full_text()
+{
+    const char *input = "jabberwocky.txt";
+    const char *output = "jabberwocky_test.txt";
+    return test_is_equal_text(input, output) 
+        && test_print_len(input, output);
 }
