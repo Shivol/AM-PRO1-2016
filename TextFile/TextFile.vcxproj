@@ -64,9 +64,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="test_text.h" />
     <ClInclude Include="text.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="test_text.cpp" />
     <ClCompile Include="text.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
