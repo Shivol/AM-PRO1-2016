@@ -45,7 +45,7 @@ bool test_print_len(const char *input, const char *output)
     // удалим временный файл
     remove(test_out_name);
 
-#ifndef _DEBUG
+#ifdef _DEBUG
     cerr << "test print_len : OK" << endl;
 #endif /* _DEBUG */
     return true;
@@ -65,7 +65,7 @@ bool test_is_equal_text(const char *filename1, const char *filename2)
 
     assert(!is_equal_text(filename1, filename2));
 
-#ifndef _DEBUG
+#ifdef _DEBUG
     cerr << "test is_equal_text : OK" << endl;
 #endif /* _DEBUG */
     return true;
@@ -73,7 +73,7 @@ bool test_is_equal_text(const char *filename1, const char *filename2)
 
 bool test_full_text()
 {
-    const char *input = "jabberwoc1ky.txt";
+    const char *input = "jabberwocky.txt";
     const char *output = "jabberwocky_test.txt";
     return test_is_equal_text(input, output) 
         && test_print_len(input, output);

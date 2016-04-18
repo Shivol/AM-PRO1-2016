@@ -34,7 +34,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="RAEDME.md">
+    <None Include="README.md">
       <Filter>Файлы ресурсов</Filter>
     </None>
   </ItemGroup>
