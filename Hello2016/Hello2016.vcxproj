@@ -123,6 +123,9 @@
     <ClCompile Include="3_hello_debug.cpp" />
     <ClCompile Include="4_hello_for.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
