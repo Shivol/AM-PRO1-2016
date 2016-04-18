@@ -126,6 +126,9 @@
     <ClInclude Include="rstring.h" />
     <ClInclude Include="test_rstring.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="RAEDME.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

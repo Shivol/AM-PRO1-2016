@@ -33,4 +33,9 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="RAEDME.md">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+  </ItemGroup>
 </Project>
