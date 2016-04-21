@@ -2,6 +2,7 @@
 // Лабораторная №11. Структуры. Двоичнвые файлы.
 // structs.h
 //
+#pragma once
 
 #include <cassert>
 #include <fstream>
@@ -67,7 +68,7 @@ size_t number_of( const char *filename)
 {
     assert(filename);
     
-    std::ifstream fin(filename, ios::binary);
+    std::ifstream fin(filename, std::ios::binary);
     if (!fin.is_open())
         throw "Невозможно открыть файл!";
 

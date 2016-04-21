@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "structs.h"
+#include "test_structs.h"
 
 using namespace std;
 
@@ -15,6 +16,8 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Russian");
+    test_number_of("points.dat");
+
     // откроем файл на чтение
     fstream file("points.dat", ios::in);
     // перейдём в конец файла
