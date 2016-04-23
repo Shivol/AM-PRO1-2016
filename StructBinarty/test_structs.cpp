@@ -15,7 +15,7 @@ bool test_number_of(const char *filename)
     if (!file.is_open())
         throw "Невозможно открыть файл!";
 
-    file.seekg(0, SEEK_END);
+    file.seekg(0, std::fstream::end);
     int size = int(file.tellg());
     file.close();
 

@@ -48,9 +48,6 @@ unsigned int whats_my_number(const string &name, const size_t count)
 
 int main()
 {
-    FILE *p;
-    fopen_s(&p, "text.txt", "r");
-    _ch
     // Количество заданий
     const size_t number_of_tasks = 25;
 
