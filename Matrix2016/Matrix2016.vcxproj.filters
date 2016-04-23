@@ -37,6 +37,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="test_matrix.txt" />
+    <Text Include="test_matrix.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
 </Project>

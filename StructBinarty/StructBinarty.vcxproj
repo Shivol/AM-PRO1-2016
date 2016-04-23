@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DD74C9D1-7A3F-422B-BD78-9574E5A58AB0}</ProjectGuid>
-    <RootNamespace>Funks2016</RootNamespace>
+    <ProjectGuid>{035CAA49-A4C6-42F7-996D-4BE5EC2E4F23}</ProjectGuid>
+    <RootNamespace>StructBinary</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>LinkingFunс2016</ProjectName>
+    <ProjectName>StructBinary</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -119,15 +119,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="func_l2.h" />
-    <ClInclude Include="test_l2.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main_l2.cpp" />
-    <ClCompile Include="test_l2.cpp" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="points.dat" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="structs.h" />
+    <ClInclude Include="test_structs.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="test_structs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
