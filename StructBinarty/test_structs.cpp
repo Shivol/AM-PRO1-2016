@@ -2,6 +2,7 @@
 // Лабораторная №11. Структуры. Двоичнвые файлы.
 // teest_structs.cpp
 //
+
 #include <iostream>
 #include <fstream>
 #include "test_structs.h"
