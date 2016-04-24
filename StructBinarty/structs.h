@@ -18,8 +18,7 @@ struct point
 // day. month. year
 struct date
 {
-    uint8_t day, month;
-    uint16_t year;
+    uint16_t day, month, year;
 };
 
 // Данные о человеке:
