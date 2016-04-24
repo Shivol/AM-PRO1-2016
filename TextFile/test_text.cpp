@@ -1,6 +1,6 @@
 //
 // Лабораторная работа №10. Текстовые файлы
-// test_text.h
+// test_text.cpp
 //
 
 #include <cassert>

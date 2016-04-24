@@ -21,7 +21,7 @@ int main()
     // откроем файл на чтение
     fstream file("points.dat", ios::in);
     // перейдём в конец файла
-    file.seekg(0, SEEK_END);
+    file.seekg(0, fstream::end);
     // выведем позицию файлового указателя
     cout << "Размер файла: " << file.tellg() << " байт" << endl;
     
