@@ -84,7 +84,7 @@ bool test_sum_prime_factors()
     assert(0);
 
 #ifdef _DEBUG 
-    cerr << "sum_denominators test: OK" << endl;
+    cerr << "sum_prime_factors test: OK" << endl;
 #endif /* _DEBUG */
     return true;
 }
