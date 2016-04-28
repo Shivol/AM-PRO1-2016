@@ -53,7 +53,7 @@ bool test_duplicate_between_zeros()
 {
     {
         size_t n = 5;
-        int *a = init_with({ 1,0,1,0,1 });
+        int *a = new int[5] { 1,0,1,0,1 };
         int result[] = { 1,0,1,1,0,1 };
         duplicate_between_zeros(a, n);
         assert(n == 6);
@@ -62,7 +62,7 @@ bool test_duplicate_between_zeros()
         delete[] a;
     } {
         size_t n = 7;
-        int *a = init_with({ 1,0,1,1,1,0,1 });
+        int *a = new int[7] { 1,0,1,1,1,0,1 };
         int result[] = { 1,0,1,1,1,1,1,1,0,1 };
         duplicate_between_zeros(a, n);
         assert(n == 10);
@@ -71,7 +71,7 @@ bool test_duplicate_between_zeros()
         delete[] a;
     } {
         size_t n = 7;
-        int *a = init_with({ 1,0,1,0,1,0,1 });
+        int *a = new int[7] { 1,0,1,0,1,0,1 };
         int result[] = { 1,0,1,1,0,0,1,1,0,1 };
         duplicate_between_zeros(a, n);
         assert(n == 10);
