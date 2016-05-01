@@ -1,0 +1,33 @@
+
+#include <iostream>
+#include "tlist.h"
+#include "test_tlist.h"
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    test_find();
+
+    size_t n;
+    cout << "Введите количество элементов списка" << endl;
+    cin >> n;
+    cout << "Введите элементы списка" << endl;
+    tlist * list = get_list(n);
+
+    tlist *p = find(list, 0);
+    int cnt = 0;
+    while (p) {  // p != nullptr
+        cnt++;
+        p = find(p->next, 0);
+    }
+
+    cout << "Количество нулевых элемнтов : " << cnt << endl;
+    delete_list(list);
+
+    _CrtDumpMemoryLeaks();
+    
+    system("pause");
+    return 0;
+}
