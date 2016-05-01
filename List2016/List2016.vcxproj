@@ -123,8 +123,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_tlist.cpp" />
-    <ClCompile Include="tlist.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="tlist_rec.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
