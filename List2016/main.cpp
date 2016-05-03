@@ -28,7 +28,7 @@ int main()
     }
 
     cout << "Количество нулевых элементов: " << cnt << endl;
-    delete_list(mylist);
+    delete_list(list);
 
     _CrtDumpMemoryLeaks();
     

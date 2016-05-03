@@ -2,10 +2,6 @@
 // Лабораторная работа №13. Динамические структуры данных. Списки
 // tlist.cpp
 //
-<<<<<<< HEAD
-=======
-
->>>>>>> ad575d590d4001f30e6f206b08be2c13481b6633
 #include <cassert>
 #include <iostream>
 #include <fstream>
