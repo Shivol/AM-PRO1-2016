@@ -17,7 +17,7 @@ struct student
 {
     // количество символов имени
     static const size_t name_size = 128;
-    // количество лабораторных работ
+    // количество элементов оценивания
     static const size_t assign_count = 10;
 
     char fullname[name_size];

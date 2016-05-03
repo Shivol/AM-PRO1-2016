@@ -3,7 +3,6 @@
 // structs_dynamic.cpp
 //
 #include <cassert>
-#include <iomanip>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -13,20 +12,31 @@
 
 using namespace std;
 
-student get_student(const std::string &s)
+uint32_t credits_sum(const student &stud)
+{
+    uint32_t sum = 0;
+    for (int i = 0; i < student::assign_count; ++i) {
+        sum += stud.credits[i];
+    }
+    return sum;
+}
+
+student get_student(const string &s)
 {
     student stud;
+    // поток данных из строки
     istringstream sin(s);
 
+    // считывание до первого символа табуляции
     sin.getline(stud.fullname, student::name_size, '\t');
 
     sin >> stud.course >> stud.group;
-
+    
     for (size_t i = 0; i < student::assign_count; ++i) {
         sin >> stud.credits[i];
     }
-
-    if (strlen(stud.fullname) == 0 || !sin.eof())
+    // если были ошибки чтения
+    if (!sin.eof() || strlen(stud.fullname) == 0)
         throw "Неверный формат входной строки";
 
     return stud;
@@ -38,7 +48,8 @@ void binary_from_text(const char *filename)
     ifstream fin(filename);
     if (!fin.is_open())
         throw "Невозможно открыть файл";
-
+    
+    // создаём имя нового файла
     string dataname = filename;
     size_t dot = dataname.find_last_of('.');
     dataname.replace(dot, dataname.length() - dot, ".dat");
@@ -53,7 +64,6 @@ void binary_from_text(const char *filename)
 
         if (student_str.length() != 0) {
             student stud = get_student(student_str);
-        
             write_binary(fout, stud);
         }
     }

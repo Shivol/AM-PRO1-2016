@@ -2,6 +2,10 @@
 // Лабораторная работа №13. Динамические структуры данных. Списки
 // tlist.cpp
 //
+<<<<<<< HEAD
+=======
+
+>>>>>>> ad575d590d4001f30e6f206b08be2c13481b6633
 #include <cassert>
 #include <iostream>
 #include <fstream>
@@ -9,31 +13,33 @@
 
 using namespace std;
 
-tlist *get_list(size_t n) 
+tlist *get_list(size_t length)
 {
     tlist *begin = nullptr;
     tlist *end = nullptr;
-    while (n > 0) {
+
+    while (length > 0) {
         tlist::datatype data;
-        if (cin >> data) {  // если чтение прошло успешно
+        if (cin >> data) {  // если чтение без ошибок
 
-            // создаём новый узел списка
             tlist *node = new tlist;
-            node -> data = data;
-            node -> next = nullptr;
+            node->data = data;
+            node->next = nullptr;
 
-            if (begin == nullptr)  // если первый элемент
+            if (begin == nullptr)
                 begin = node;
-            if (end != nullptr)    // если не первый элемент
-                end ->next = node;
+
+            if (end != nullptr)
+                end->next = node;
             end = node;
         }
-        n--;
+        length--;
     }
+
     return begin;
 }
 
-tlist *get_list( const char *filename ) 
+tlist *get_list(const char *filename)
 {
     assert(filename != nullptr);
     tlist *begin = nullptr;
@@ -44,17 +50,16 @@ tlist *get_list( const char *filename )
         throw "Невозможно открыть файл";
 
     tlist::datatype data;
-    while (fin >> data) {  // пока успешно читается очередной элемент
-        
-        // создаём новый узел списка
+    while (fin >> data) {
         tlist *node = new tlist;
-        node -> data = data;
-        node -> next = nullptr;
+        node->data = data;
+        node->next = nullptr;
 
-        if (begin == nullptr)  // если первый элемент
+        if (begin == nullptr)
             begin = node;
-        if (end != nullptr)   // если не первый элемент
-            end ->next = node;
+
+        if (end != nullptr)
+            end->next = node;
         end = node;
     }
 
@@ -62,30 +67,35 @@ tlist *get_list( const char *filename )
     return begin;
 }
 
-void delete_list( tlist *&begin )
+void delete_list(tlist *&begin)
 {
     while (begin != nullptr) {
         tlist *t = begin;
-        begin = begin -> next;
+        begin = begin->next;
         delete t;
     }
 }
 
-void print( const tlist *begin )
-{    
+void print(const tlist *begin)
+{
     while (begin != nullptr) {
-        cout << begin -> data << ' ';
-        begin = begin -> next;
+        cout << begin->data << ' ';
+        begin = begin->next;
     }
     cout << endl;
 }
 
-tlist *find( const tlist *begin, tlist::datatype x )
+// Передаём begin константой, чтобы показать что список не меняется
+tlist *find(const tlist *begin, tlist::datatype x)
 {
-    while (begin != nullptr) {
-        if (begin -> data == x)
+    // снимаем константность указателя
+    // т.к. мы знаем, что переданный список не константный tlist*
+    tlist *t = const_cast<tlist *>(begin);
+    
+    while (t != nullptr) {
+        if (t->data == x)
             break;
-        begin = begin -> next;
+        t = t->next;
     }
-    return const_cast<tlist *>(begin);
+    return t;
 }
