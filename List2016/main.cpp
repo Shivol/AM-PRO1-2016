@@ -12,7 +12,7 @@ using namespace std;
 int main()
 {
    setlocale(LC_ALL, "Russian");
-    test_find();
+    test_tlist_full();
 
     size_t n;
     cout << "Введите количество элементов списка" << endl;
