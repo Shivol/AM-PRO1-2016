@@ -5,6 +5,7 @@
 #include <cassert>
 #include <iostream>
 #include <fstream>
+#include "crtdynmem.h"
 #include "tlist.h"
 
 using namespace std;

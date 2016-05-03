@@ -6,20 +6,23 @@
 #include <cassert>
 #include <iostream>
 #include <fstream>
-#include "tlist.h"
+#include "crtdynmem.h"
 #include "test_tlist.h"
+#include "tlist.h"
+
+using namespace std;
 
 tlist::datatype *create_test_data(const char* filename, size_t length)
 {
     // создаём массив данных
     tlist::datatype *array = new tlist::datatype[length];
-    for (int i=0; i<length; i++) {
+    for (size_t i=0; i < length; i++) {
         array[i] = rand();
     }
 
     // создаём файл данных
-    std::ofstream file(filename);    
-    int i=0;
+    ofstream file(filename);    
+    size_t i=0;
     while (file.good() && i < length)
         file << ' ' << array[i++];
     file.close();
@@ -30,7 +33,7 @@ tlist::datatype *create_test_data(const char* filename, size_t length)
 
 bool is_equal_test(const tlist *begin, tlist::datatype *array, size_t length)
 {    
-    int  i = 0;
+    size_t i = 0;
     while (begin != nullptr && i < length) {
         // совпадение результата с исходными данными
         assert(begin->data == array[i]);
@@ -40,6 +43,15 @@ bool is_equal_test(const tlist *begin, tlist::datatype *array, size_t length)
     // совпадение количества результатов с исходным количеством
     assert(i == length);
     return true;
+}
+
+bool file_is_empty(const char *filename)
+{
+    ifstream fin(filename);
+    if (!fin.is_open())
+        throw "Невозможно открыть файл";
+    fin.get();
+    return fin.eof();
 }
 
 array_list get_array_list(const tlist::datatype *array, size_t length)
@@ -58,7 +70,6 @@ array_list get_array_list(const tlist::datatype *array, size_t length)
 
 bool test_get_list()
 {
-    using namespace std;
     size_t n = 10;
     const char *tmpname = "list.tmp";    
     // получаем тестовые данные
@@ -78,9 +89,9 @@ bool test_get_list()
     is_equal_test(list, array, n);
     
     // удаляем временные данные
-    delete_list(list);
     delete [] array;
     remove(tmpname);
+    delete_list(list);
 #ifdef _DEBUG
     std::cerr << "test get_list(length): OK" << std::endl;
 #endif
@@ -100,10 +111,10 @@ bool test_get_list_from_file()
     // проверяем равенство прочитанного с исходным
     is_equal_test(list, array, n);
     
-    // удаляем временные данные
-    delete_list(list);
+    // удаляем временные данные    
     delete [] array;
     remove(tmpname);
+    delete_list(list);
 #ifdef _DEBUG
     std::cerr << "test get_list(filename): OK" << std::endl;
 #endif
@@ -112,7 +123,7 @@ bool test_get_list_from_file()
 
 bool test_get_array_list()
 {
-    int n = 10;
+    int n = 5;
     tlist::datatype *array = new tlist::datatype[n];
     for (int i=0; i<n; i++) {
         array[i] = rand();
@@ -120,16 +131,20 @@ bool test_get_array_list()
     array_list list = get_array_list(array, n);
 
     tlist *p =list;
-    int i=0;
-    while (p->next != nullptr) {
+    int i = 0;
+    while (p != nullptr && i < n) {
         // проверяем структуру списка
         assert(p == &list[i]);
-        // проверяем значения
+        // проверяем значения в списке
         assert(p->data == array[i]);
         i++;
         p=p->next;
     }
+    // проверяем количество значений в списке
+    assert(i == n);
 
+    delete[] list;  // т.к. это - массив элементов tlist
+    delete[] array;
 #ifdef _DEBUG
     std::cerr << "test get_array_list: OK" << std::endl;
 #endif
