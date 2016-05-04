@@ -2,10 +2,10 @@
 // Лабораторная работа №13. Динамические структуры данных. Списки
 // tlist.cpp
 //
-
 #include <cassert>
 #include <iostream>
 #include <fstream>
+#include "crtdynmem.h"
 #include "tlist.h"
 
 using namespace std;

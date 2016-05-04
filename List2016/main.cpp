@@ -1,3 +1,7 @@
+//
+// Лабораторная работа №13. Динамические структуры данных. Списки
+// main.cpp
+//
 
 #include <iostream>
 #include "tlist.h"
@@ -7,8 +11,8 @@ using namespace std;
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    test_find();
+   setlocale(LC_ALL, "Russian");
+    test_tlist_full();
 
     size_t n;
     cout << "Введите количество элементов списка" << endl;
@@ -23,7 +27,7 @@ int main()
         p = find(p->next, 0);
     }
 
-    cout << "Количество нулевых элемнтов : " << cnt << endl;
+    cout << "Количество нулевых элементов: " << cnt << endl;
     delete_list(list);
 
     _CrtDumpMemoryLeaks();

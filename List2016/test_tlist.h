@@ -22,6 +22,14 @@ typedef tlist *array_list;
 array_list get_array_list(const tlist::datatype *array, size_t length);
 
 // Тест для функции
+// array_list get_array_list(const tlist::datatype *array, size_t length)
+// Проверяет корректность структуры массива-списка и значений в списке.
+bool test_get_array_list();
+
+// Тест для функции
 // tlist *find(const tlist *begin, const tlist::datatype x)
 // Проверяет случаи наличия и отсутствия элементов в списке.
 bool test_find();
+
+// Тест всех функций tlist.h
+bool test_tlist_full();
