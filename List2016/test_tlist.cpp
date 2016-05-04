@@ -21,7 +21,9 @@ tlist::datatype *create_test_data(const char* filename, size_t length)
     }
 
     // создаЄм файл данных
-    ofstream file(filename);    
+    ofstream file(filename);
+    if (!file.is_open())
+        throw "Ќевозможно открыть файл";
     size_t i=0;
     while (file.good() && i < length)
         file << ' ' << array[i++];
@@ -29,6 +31,36 @@ tlist::datatype *create_test_data(const char* filename, size_t length)
 
     // возвращаем указатель на данные дл€ проверки
     return array;
+}
+
+bool test_create_test_data()
+{
+    size_t n = 100;
+    const char *tmpname = "test.tmp";
+    tlist::datatype *array = create_test_data(tmpname, n);
+    
+    ifstream fin(tmpname);
+    assert(fin.is_open());
+
+    int i = 0;
+    while (fin.good() && i < n) {
+        tlist::datatype x;
+        if (fin >> x) {  // если чтение успешно
+            // совпадение данных в файле с исходными данными
+            assert(x == array[i]);
+            i++;
+        }
+    }
+    // совпадение количества данных
+    assert(i == n);
+
+    fin.close();
+    delete[] array;
+    remove(tmpname);
+#ifdef _DEBUG
+    std::cerr << "test create_test_data: OK" << std::endl;
+#endif
+    return true;
 }
 
 bool is_equal_test(const tlist *begin, tlist::datatype *array, size_t length)
@@ -43,15 +75,6 @@ bool is_equal_test(const tlist *begin, tlist::datatype *array, size_t length)
     // совпадение количества результатов с исходным количеством
     assert(i == length);
     return true;
-}
-
-bool file_is_empty(const char *filename)
-{
-    ifstream fin(filename);
-    if (!fin.is_open())
-        throw "Ќевозможно открыть файл";
-    fin.get();
-    return fin.eof();
 }
 
 array_list get_array_list(const tlist::datatype *array, size_t length)
@@ -70,7 +93,7 @@ array_list get_array_list(const tlist::datatype *array, size_t length)
 
 bool test_get_list()
 {
-    size_t n = 10;
+    size_t n = 100;
     const char *tmpname = "list.tmp";    
     // получаем тестовые данные
     tlist::datatype *array = create_test_data(tmpname, n);
@@ -100,7 +123,7 @@ bool test_get_list()
 
 bool test_get_list_from_file()
 {
-    size_t n = 10;
+    size_t n = 100;
     const char *tmpname = "list.tmp";    
     // получаем тестовые данные
     tlist::datatype *array = create_test_data(tmpname, n);
@@ -170,12 +193,12 @@ bool test_find()
     std::cerr << "test find: OK" << std::endl;
 #endif
     return true;
-
 }
 
 bool test_tlist_full()
 {
-    return test_get_list() &&
+    return  test_create_test_data() &&
+        test_get_list() &&
         test_get_list_from_file() &&
         test_get_array_list() &&
         test_find();
