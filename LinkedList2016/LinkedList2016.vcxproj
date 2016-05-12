@@ -67,11 +67,13 @@
     <ClCompile Include="llist.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test_tlist.cpp" />
+    <ClCompile Include="test_llist.cpp" />
     <ClCompile Include="tlist.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="crtdynmem.h" />
     <ClInclude Include="llist.h" />
+    <ClInclude Include="test_llist.h" />
     <ClInclude Include="test_tlist.h" />
     <ClInclude Include="tlist.h" />
   </ItemGroup>
