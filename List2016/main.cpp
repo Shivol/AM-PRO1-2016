@@ -3,7 +3,9 @@
 // main.cpp
 //
 
+
 #include <iostream>
+#include "crtdynmem.h"
 #include "tlist.h"
 #include "test_tlist.h"
 
