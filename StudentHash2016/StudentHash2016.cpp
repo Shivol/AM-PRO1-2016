@@ -49,7 +49,7 @@ unsigned int whats_my_number(const string &name, const size_t count)
 int main()
 {
     // Количество заданий
-    const size_t number_of_tasks = 25;
+    const size_t number_of_tasks = 20;
 
     setlocale(LC_ALL, "Rus");
 
