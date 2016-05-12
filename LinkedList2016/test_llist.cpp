@@ -92,25 +92,39 @@ bool test_get_array_llist()
 #endif
     return true;
 }
-bool test_llist_find()
+
+bool test_is_symmetrical()
 {
     // проверяем, что используемая функция корректна
     test_get_array_llist();
-    // создаём массив тестовых данных
+    // проверка для списка чётной длины
     size_t  n = 10;
-    llist::datatype array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+    llist::datatype array[] = { 0, 1, 2, 3, 4, 4, 3, 2, 1, 0 };
     llist *list = get_array_llist(array, n);
 
-    // проверяем поиск существующих элементов
-    for (size_t i = 0; i < n; i++)
-        assert(find(list, array[i]) == &list[i]);
+    for (size_t i = 0; i < n / 2; i++) {
+        assert(is_symmetrical(&list[i], &list[n - i - 1]));
+        assert(!is_symmetrical(&list[i], &list[n - i - 2]));
+    }
+    
+    delete[] list;
 
-    //проверяем поиск не существующих элементов
-    assert(find(list, -1) == nullptr);
+    // проверка для списка нечётной длины
+    n = 9;
+    llist::datatype array2[] = { 1, 0, 1, 0, 1, 0, 1, 0, 1 };
+    list = get_array_llist(array2, n);
+
+    for (size_t i = 0; i < n / 2; i++) {
+        assert(is_symmetrical(&list[i], &list[n - i - 1]));        
+        assert(is_symmetrical(&list[i], &list[i + 2]));
+        assert(is_symmetrical(&list[i], &list[i + 4]));
+        assert(!is_symmetrical(&list[i], &list[i + 1]));
+        assert(!is_symmetrical(&list[i], &list[i + 3]));
+    }
 
     delete[] list;
 #ifdef _DEBUG
-    std::cerr << "test find(llist): OK" << std::endl;
+    std::cerr << "test is_symmetrical: OK" << std::endl;
 #endif
     return true;
 }
@@ -118,5 +132,5 @@ bool test_llist_find()
 bool test_llist_full()
 {
     return test_get_llist_from_file() &&
-        test_llist_find();
+        test_is_symmetrical();
 }

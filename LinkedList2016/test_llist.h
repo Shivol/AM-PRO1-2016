@@ -20,10 +20,10 @@ llist *get_array_llist(const llist::datatype *array, size_t length);
 // Проверка структуры полученного списка и значений.
 bool test_get_array_llist();
 
-// Тест шаблонной функции
-// template <typename List, typename List_Data> List *find(const List *begin, List_Data x)
-// Проверка существующих и не существующих элементов.
-bool test_llist_find();
+// Тест функции
+// bool is_symmetrical(const llist *begin, const llist *end)
+// Проверка для списков чётной и нечётной длины.
+bool test_is_symmetrical();
 
 // Тестирование всех функций из llist
 bool test_llist_full();

@@ -15,17 +15,10 @@ int main()
 
     char filename[32] = "llist.txt";
     llist *end;
-    llist * begin = get_list(filename, end);
+    llist *begin = get_list(filename, end);
     print_list(begin);
 
-    llist *p = find(begin, 0);
-    int cnt = 0;
-    while (p) {  // p != nullptr
-        cnt++;
-        p = find(p->next, 0);
-    }
-
-    cout << "Количество нулевых элементов: " << cnt << endl;
+    cout << (is_symmetrical(begin, end) ? "Список симметричен" : "Список не симметричен") << endl;
     delete_list(begin);
 
     _CrtDumpMemoryLeaks();

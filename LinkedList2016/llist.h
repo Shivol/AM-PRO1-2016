@@ -3,7 +3,6 @@
 // llist.h
 //
 #pragma once
-#include "tlist.h"
 
 // Узел двусвязного списка:
 //     llist::datatype - тип данных списка;
@@ -25,6 +24,13 @@ struct llist
 //     end - указатель на конец списка.
 // Возвращает указатель на первый элемент нового списка.
 llist *get_list(const char *filename, llist *&end);
+
+// Функция проверки двусвязного списка на симметричность.
+// Входные параметры:
+//     begin - указатель на начало списка;
+//     end - указатель на конецсписка.
+// Возвпащает true, если список симметричен.
+bool is_symmetrical(const llist *begin, const llist *end);
 
 // Шаблонная функция удаления линейного списка.
 // Входные параметры:
@@ -51,23 +57,4 @@ void print_list(const List *begin)
         begin = begin->next;
     }
     cout << endl;
-}
-
-// Шаблонная функция поиска элемента в линейном списке.
-// Входные параметры:
-//     begin - указатель на начало списка;
-//     x - искомое значение.
-// Возвращает указатель на первый элемент с заданным значением или
-// nullptr, если элемента с таким значение в списке нет.
-template <typename List, typename List_Data>
-List *find(const List *begin, List_Data x)
-{
-    List *t = const_cast<List*>(begin);
-    
-    while (t != nullptr) {
-        if (t->data == x)
-            break;
-        t = t->next;
-    }
-    return t;
 }

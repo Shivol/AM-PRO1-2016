@@ -10,31 +10,6 @@
 
 using namespace std;
 
-llist *get_list(const tlist *source, llist *&end)
-{
-    assert(source != nullptr);
-    llist *begin = nullptr;
-    end = nullptr;
-
-    while (source != nullptr) {
-        llist *node = new llist;
-        node->data = static_cast<llist::datatype>(source->data);
-        node->next = nullptr;
-        node->prev = end;
-
-        if (begin == nullptr)
-            begin = node;
-
-        if (end != nullptr)
-            end->next = node;
-        end = node;
-
-        source = source->next;
-    }
-
-    return begin;
-}
-
 llist *get_list(const char *filename, llist *&end)
 {
     assert(filename != nullptr);
@@ -62,4 +37,21 @@ llist *get_list(const char *filename, llist *&end)
 
     fin.close();
     return begin;
+}
+
+
+bool is_symmetrical(const llist *begin, const llist *end)
+{
+    assert(begin != nullptr);
+    assert(end != nullptr);
+
+    while (begin != end) {
+        if (begin->data != end->data)
+            return false;
+        if (begin->next == end) 
+            break;
+        begin = begin->next;
+        end = end->prev;
+    }
+    return true;
 }
