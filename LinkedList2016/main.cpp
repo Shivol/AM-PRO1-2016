@@ -4,24 +4,19 @@
 //
 #include <iostream>
 #include "llist.h"
-//#include "test_llist.h"
+#include "test_llist.h"
 
 using namespace std;
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    // test_tlist_full();
+    test_llist_full();
 
-    size_t n;
-    cout << "Введите количество элементов списка" << endl;
-    cin >> n;
-    cout << "Введите элементы списка" << endl;
-    tlist *tmplist = get_list(n);
+    char filename[32] = "llist.txt";
     llist *end;
-    llist * begin = get_list(tmplist, end);
-
-    delete_list(tmplist);
+    llist * begin = get_list(filename, end);
+    print_list(begin);
 
     llist *p = find(begin, 0);
     int cnt = 0;

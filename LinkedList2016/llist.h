@@ -20,21 +20,21 @@ struct llist
 
 // Функция создания двусвязного списка на основе односвязного.
 // Входные параметры:
-//     source - указатель на начало исходного списка.
+//     filename - имя файла данных.
 // Выходные праметры:
 //     end - указатель на конец списка.
 // Возвращает указатель на первый элемент нового списка.
-llist *get_list(const tlist *source, llist *&end);
+llist *get_list(const char *filename, llist *&end);
 
 // Шаблонная функция удаления линейного списка.
 // Входные параметры:
 //     begin - указатель на начало списка.
 // Выходное значение параметра begin равно nullptr.
 template <typename List>
-void delete_list(List &begin)
+void delete_list(List *&begin)
 {
     while (begin != nullptr) {
-        List t = begin;
+        List *t = begin;
         begin = begin->next;
         delete t;
     }
@@ -44,7 +44,7 @@ void delete_list(List &begin)
 // Входные параметры:
 //     begin - указатель на начало списка.
 template <typename List>
-void print_list(const List begin) 
+void print_list(const List *begin) 
 {
     while (begin != nullptr) {
         cout << begin->data << ' ';
@@ -59,10 +59,10 @@ void print_list(const List begin)
 //     x - искомое значение.
 // Возвращает указатель на первый элемент с заданным значением или
 // nullptr, если элемента с таким значение в списке нет.
-template <typename List, typename ListData>
-List find(const List begin, ListData x)
+template <typename List, typename List_Data>
+List *find(const List *begin, List_Data x)
 {
-    List t = const_cast<List>(begin);
+    List *t = const_cast<List*>(begin);
     
     while (t != nullptr) {
         if (t->data == x)

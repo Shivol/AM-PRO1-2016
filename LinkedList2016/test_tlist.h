@@ -26,6 +26,10 @@ array_list get_array_list(const tlist::datatype *array, size_t length);
 // Проверяет корректность структуры массива-списка и значений в списке.
 bool test_get_array_list();
 
+tlist::datatype *create_test_data(const char* filename, size_t length);
+
+bool is_equal_test(const tlist *begin, tlist::datatype *array, size_t length);
+
 // Тест для функции
 // tlist *find(const tlist *begin, const tlist::datatype x)
 // Проверяет случаи наличия и отсутствия элементов в списке.
