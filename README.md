@@ -14,4 +14,5 @@ Assignments for [SFEDU Applied Mathematics programm Proggramming1](http://edu.mm
 - [Лабораторная №12](https://github.com/Shivol/AM-PRO1-2016/tree/master/DynStructs2016)
 - [Лабораторная №13 - 14](https://github.com/Shivol/AM-PRO1-2016/tree/master/List2016)
 - [Лабораторная №15](https://github.com/Shivol/AM-PRO1-2016/tree/master/LinkedList2016)
+
 > all files are `win-1251` :shrug:
