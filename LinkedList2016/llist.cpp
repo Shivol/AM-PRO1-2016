@@ -10,15 +10,20 @@
 
 using namespace std;
 
-llist *get_list(const tlist *source, llist *&end)
+llist *get_list(const char *filename, llist *&end)
 {
-    assert(source != nullptr);
+    assert(filename != nullptr);
     llist *begin = nullptr;
     end = nullptr;
 
-    while (source != nullptr) {
+    ifstream fin(filename);
+    if (!fin.is_open())
+        throw "Невозможно открыть файл";
+
+    llist::datatype data;
+    while (fin >> data) {
         llist *node = new llist;
-        node->data = static_cast<llist::datatype>(source->data);
+        node->data = data;
         node->next = nullptr;
         node->prev = end;
 
@@ -28,11 +33,25 @@ llist *get_list(const tlist *source, llist *&end)
         if (end != nullptr)
             end->next = node;
         end = node;
-
-        source = source->next;
     }
 
+    fin.close();
     return begin;
 }
 
 
+bool is_symmetrical(const llist *begin, const llist *end)
+{
+    assert(begin != nullptr);
+    assert(end != nullptr);
+
+    while (begin != end) {
+        if (begin->data != end->data)
+            return false;
+        if (begin->next == end) 
+            break;
+        begin = begin->next;
+        end = end->prev;
+    }
+    return true;
+}

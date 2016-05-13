@@ -7,24 +7,24 @@
 
 using namespace std;
 
-void read_from_text( ifstream &fin, matrix a, size_t &m, size_t &n)
+void read_from_text( ifstream &fin, matrix a, size_t &rows, size_t &cols)
 {
     assert(fin); // проверка на корректность файлового потока
 
-    if (!(fin >> m) || !(fin >> n))
+    if (!(fin >> rows) || !(fin >> cols))
         throw "Неверный формат входного файла";
-    if (m > MaxM || n > MaxN)
+    if (rows > MAX_ROWS || cols > MAX_COLS)
         throw "Невозможно считать матрицу такого размера";
 
-    for (int i = 0; i < m; ++i)
-        for (int j = 0; j < n; ++j)
+    for (int i = 0; i < rows; ++i)
+        for (int j = 0; j < cols; ++j)
             if (!(fin >> a[i][j]))
                 throw "Неверный формат входного файла";
 
 }
 
 //
-void read_from_text(const char *fname, matrix a, size_t &m, size_t &n)
+void read_from_text(const char *fname, matrix a, size_t &rows, size_t &cols)
 {
     assert(fname != nullptr);
 
@@ -32,23 +32,23 @@ void read_from_text(const char *fname, matrix a, size_t &m, size_t &n)
 
     if (!fin.is_open()) throw "Не найден указанный файл";
 
-    read_from_text(fin, a, m, n);
+    read_from_text(fin, a, rows, cols);
 
     fin.close();
 }
 
 //
-void read_from_text(ifstream &fin, double **&a, size_t &m, size_t &n)
+void read_from_text(ifstream &fin, double **&a, size_t &rows, size_t &cols)
 {
     assert(fin); // проверка на корректность файлового потока
 
-    if (!(fin >> m) || !(fin >> n))
+    if (!(fin >> rows) || !(fin >> cols))
         throw "Неверный формат входного файла";
 
-    a = new double *[m];
-    for (int i = 0; i < m; ++i) {
-        a[i] = new double[n]; // ыделяем память под очередную строку
-        for (int j = 0; j < n; ++j)
+    a = new double *[rows];
+    for (int i = 0; i < rows; ++i) {
+        a[i] = new double[cols]; // ыделяем память под очередную строку
+        for (int j = 0; j < cols; ++j)
 
             if (!(fin >> a[i][j])) { // если в файле недостаточно чисел
                
@@ -63,7 +63,7 @@ void read_from_text(ifstream &fin, double **&a, size_t &m, size_t &n)
 }
 
 //
-void read_from_text(const char *fname, double **&a, size_t &m, size_t &n)
+void read_from_text(const char *fname, double **&a, size_t &rows, size_t &cols)
 {
     assert(fname != nullptr);
 
@@ -71,16 +71,16 @@ void read_from_text(const char *fname, double **&a, size_t &m, size_t &n)
 
     if (!fin.is_open()) throw "Не найден указанный файл";
 
-    read_from_text(fin, a, m, n);
+    read_from_text(fin, a, rows, cols);
 
     fin.close();
 }
 
 //
-void delete_matrix(double ** const a, const size_t m, const size_t n)
+void delete_matrix(double ** const a, const size_t rows, const size_t cols)
 {
     assert(a != nullptr);
-    for (size_t i = 0; i < m; ++i)
+    for (size_t i = 0; i < rows; ++i)
         delete[] a[i];
     delete[] a;
 }

@@ -13,24 +13,12 @@ int main()
     setlocale(LC_ALL, "Russian");
     test_llist_full();
 
-    size_t n;
-    cout << "Введите количество элементов списка" << endl;
-    cin >> n;
-    cout << "Введите элементы списка" << endl;
-    tlist *tmplist = get_list(n);
+    char filename[32] = "llist.txt";
     llist *end;
-    llist * begin = get_list(tmplist, end);
+    llist *begin = get_list(filename, end);
+    print_list(begin);
 
-    delete_list(tmplist);
-
-    llist *p = find(begin, 0);
-    int cnt = 0;
-    while (p) {  // p != nullptr
-        cnt++;
-        p = find(p->next, 0);
-    }
-
-    cout << "Количество нулевых элементов: " << cnt << endl;
+    cout << (is_symmetrical(begin, end) ? "Список симметричен" : "Список не симметричен") << endl;
     delete_list(begin);
 
     _CrtDumpMemoryLeaks();

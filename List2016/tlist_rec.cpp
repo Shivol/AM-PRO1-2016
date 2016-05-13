@@ -82,5 +82,4 @@ tlist *find(const tlist *begin, tlist::datatype x)
     if (begin->data == x) 
         return const_cast<tlist *>(begin);
     return find(begin->next, x);
-
 }

@@ -7,11 +7,11 @@
 #include <assert.h>
 
 // максимальное количество строк
-const size_t MaxM=10;
+const size_t MAX_ROWS=10;
 // максимальное количество столбцов
-const size_t MaxN=10;
+const size_t MAX_COLS=10;
 // пользовательский тип матрицы
-typedef double matrix[MaxM][MaxN];
+typedef double matrix[MAX_ROWS][MAX_COLS];
 
 
 
@@ -21,11 +21,11 @@ typedef double matrix[MaxM][MaxN];
 //      fname - имя файла.
 // Выходные параметры:
 //      a - указатель на начало массива;
-//      m - количество строк матрицы а;
-//      n - количество количество столбцов матрицы а.
+//      rows - количество строк матрицы а;
+//      cols - количество количество столбцов матрицы а.
 // Если в файле оказывается меньше элементов, чем указанно,
 // генерируется исключение char*.
-void read_from_text(const char *fname, matrix a, size_t &m, size_t &n);
+void read_from_text(const char *fname, matrix a, size_t &rows, size_t &cols);
 
 // Функция чтения матрицы вещественных чисел из заданного текстового файла.
 // Автоматическое выделение памяти.
@@ -33,11 +33,11 @@ void read_from_text(const char *fname, matrix a, size_t &m, size_t &n);
 //      fin - файловый поток ввода.
 // Выходные параметры:
 //      a - указатель на начало массива;
-//      m - количество строк матрицы а;
-//      n - количество количество столбцов матрицы а.
+//      rows - количество строк матрицы а;
+//      cols - количество количество столбцов матрицы а.
 // Если в файле оказывается меньше элементов, чем указанно,
 // генерируется исключение char*.
-void read_from_text(std::ifstream &fin, matrix a, size_t &m, size_t &n);
+void read_from_text(std::ifstream &fin, matrix a, size_t &rows, size_t &cols);
 
 // Функция чтения матрицы вещественных чисел из текстового файла с заданным именем.
 // Динамическое выделение памяти.
@@ -45,11 +45,11 @@ void read_from_text(std::ifstream &fin, matrix a, size_t &m, size_t &n);
 //     fname - имя файла.
 // Выходные параметры:
 //     a - указатель на начало массива;
-//     m - количество строк;
-//     n - количество количество столбцов.
+//     rows - количество строк;
+//     cols - количество количество столбцов.
 // Если в файле оказывается меньше элементов, чем указанно,
 // генерируется исключение char*.
-void read_from_text(const char *fname, double **&a, size_t &m, size_t &n);
+void read_from_text(const char *fname, double **&a, size_t &rows, size_t &cols);
 
 // Функция чтения матрицы вещественных чисел из заданного текстового файла.
 // Динамическое выделение памяти.
@@ -57,32 +57,32 @@ void read_from_text(const char *fname, double **&a, size_t &m, size_t &n);
 //     fin - файловый поток ввода.
 // Выходные параметры:
 //     a - указатель на начало массива;
-//     m - количество строк матрицы а;
-//     n - количество количество столбцов матрицы а.
+//     rows - количество строк матрицы а;
+//     cols - количество количество столбцов матрицы а.
 // Если в файле оказывается меньше элементов, чем указанно,
 // генерируется исключение char*.
-void read_from_text(std::ifstream &fin, double **&a, size_t &m, size_t &n);
+void read_from_text(std::ifstream &fin, double **&a, size_t &rows, size_t &cols);
 
 // Функция освоюождения памяти, занимаемой матрицей.
 // Входные параметры:
 //     a - указатель на матрицу;
-//     m - количество строк матрицы а;
-//     n - количество количество столбцов матрицы а.
-void delete_matrix( double ** const a, const size_t m, const size_t n);
+//     rows - количество строк матрицы а;
+//     cols - количество количество столбцов матрицы а.
+void delete_matrix( double ** const a, const size_t rows, const size_t cols);
 
 // Шаблон функции вывода двумерного массива.
 // Входные параметры:
 //     a - указатель на начало массива;
-//     m - количество строк матрицы а;
-//     n - количество количество столбцов матрицы а.
+//     rows - количество строк матрицы а;
+//     cols - количество количество столбцов матрицы а.
 template <typename T>
-void print(const T a, const size_t m, const size_t n)
+void print(const T a, const size_t rows, const size_t cols)
 {
     assert(a != nullptr);
     using namespace std;
 
-    for (size_t i = 0; i < m; ++i) {
-        for (size_t j = 0; j < n; ++j)
+    for (size_t i = 0; i < rows; ++i) {
+        for (size_t j = 0; j < cols; ++j)
             cout << setw(6)  // ширина поля вывода
             << fixed << setprecision(3)  // количество знаков после запятой
             << a[i][j];
@@ -93,20 +93,20 @@ void print(const T a, const size_t m, const size_t n)
 // Шаблон функции сравнения двух матриц на равенство.
 // Входные параметры:
 //     a, b - указатели на начало массива;
-//     m - количество строк матриц а, b;
-//     n - количество количество столбцов матриц а, b;
+//     rows - количество строк матриц а, b;
+//     cols - количество количество столбцов матриц а, b;
 //     precision - точность сравнения, по умолчанию = 0.
 // Возвращаемое значение:
 //     true - если все элементы матриц равны.
 template <typename T>
-bool is_equal(const T a, const T b, const size_t m, const size_t n, const double precision = 0.0)
+bool is_equal(const T a, const T b, const size_t rows, const size_t cols, const double precision = 0.0)
 {
     assert(a != nullptr);
     assert(b != nullptr);
     if (a == b) return true;
 
-    for (size_t i = 0; i < m; ++i)
-        for (size_t j = 0; j < n; ++j)
+    for (size_t i = 0; i < rows; ++i)
+        for (size_t j = 0; j < cols; ++j)
             if (fabs(a[i][j] - b[i][j]) > precision)
                 return false;
     return true;

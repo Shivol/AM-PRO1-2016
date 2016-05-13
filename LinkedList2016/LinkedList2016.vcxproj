@@ -13,12 +13,13 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{307F6950-ECE9-48B3-998D-A2EA2ADB77AC}</ProjectGuid>
     <RootNamespace>LinkedList2016</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -66,8 +67,8 @@
   <ItemGroup>
     <ClCompile Include="llist.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="test_tlist.cpp" />
     <ClCompile Include="test_llist.cpp" />
+    <ClCompile Include="test_tlist.cpp" />
     <ClCompile Include="tlist.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +77,12 @@
     <ClInclude Include="test_llist.h" />
     <ClInclude Include="test_tlist.h" />
     <ClInclude Include="tlist.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="llist.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

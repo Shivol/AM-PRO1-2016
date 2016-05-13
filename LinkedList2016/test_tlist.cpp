@@ -45,15 +45,6 @@ bool is_equal_test(const tlist *begin, tlist::datatype *array, size_t length)
     return true;
 }
 
-bool file_is_empty(const char *filename)
-{
-    ifstream fin(filename);
-    if (!fin.is_open())
-        throw "Невозможно открыть файл";
-    fin.get();
-    return fin.eof();
-}
-
 array_list get_array_list(const tlist::datatype *array, size_t length)
 {
     assert(array != nullptr);
