@@ -4,14 +4,14 @@
 //
 #include <iostream>
 #include "llist.h"
-//#include "test_llist.h"
+#include "test_llist.h"
 
 using namespace std;
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    // test_tlist_full();
+    test_llist_full();
 
     size_t n;
     cout << "Введите количество элементов списка" << endl;
