@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы ресурсов</Filter>
     </None>
   </ItemGroup>
 </Project>

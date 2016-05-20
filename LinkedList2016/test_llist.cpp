@@ -85,7 +85,7 @@ bool test_get_array_llist()
         p = p->prev;
     }
 
-    delete[] list;  // т.к. это - массив элементов tlist
+    delete[] list;
     delete[] array;
 #ifdef _DEBUG
     std::cerr << "test get_array_llist: OK" << std::endl;
@@ -104,7 +104,8 @@ bool test_is_symmetrical()
 
     for (size_t i = 0; i < n / 2; i++) {
         assert(is_symmetrical(&list[i], &list[n - i - 1]));
-        assert(!is_symmetrical(&list[i], &list[n - i - 2]));
+        if (i != n-i-2)
+         assert(!is_symmetrical(&list[i], &list[n - i - 2]));
     }
     
     delete[] list;
