@@ -125,7 +125,6 @@
   <ItemGroup>
     <ClCompile Include="test_tlist.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="tlist_op.cpp" />
     <ClCompile Include="tlist_rec.cpp" />
   </ItemGroup>
   <ItemGroup>

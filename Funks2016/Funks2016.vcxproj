@@ -123,6 +123,7 @@
     <ClInclude Include="test_l2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="func_l2.cpp" />
     <ClCompile Include="main_l2.cpp" />
     <ClCompile Include="test_l2.cpp" />
   </ItemGroup>

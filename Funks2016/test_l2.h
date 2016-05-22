@@ -1,8 +1,18 @@
-/* test_l2.h
- * Опесание Тестов функций из библиотеки func_l2.h
- */
+//
+// Лабораторная работа №2. Библиотека функций
+// test_l2.h
+//
 
 #pragma once
+
+ // Точность сравнения вещественных чисел
+const double precision = 1E-15;
+
+// bool test_sqr()
+// Функциия:
+// double sqr ( double x)
+// проверка отрицательных, положительных и дробных значений.
+bool test_sqr(int number_of_tests);
 
 // bool test_distance()
 // Функциия:

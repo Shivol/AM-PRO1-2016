@@ -6,15 +6,15 @@
 #include <cassert>
 #include "dynarr.h"
 
-void find_zeros(const int* a, const size_t n, size_t &first, size_t &last)
+void find_zeros(const int* array, const size_t size, size_t &first, size_t &last)
 {
-    assert(a != nullptr);
-    assert(n > 0);
+    assert(array != nullptr);
+    assert(size > 0);
 
     first = -1;
     last = -1;
-    for (int i = 0; i < n; i++)
-        if (a[i] == 0) {
+    for (size_t i = 0; i < size; i++)
+        if (array[i] == 0) {
             if (first == -1) first = i;
             last = i;
         }
@@ -25,38 +25,38 @@ void find_zeros(const int* a, const size_t n, size_t &first, size_t &last)
     assert(last != -1);
 }
 
-void duplicate_between_zeros(int *&a, size_t &n)
+void duplicate_between_zeros(int *&array, size_t &size)
 {
-    assert(a != nullptr);
-    assert(n > 0);
+    assert(array != nullptr);
+    assert(size > 0);
 
     size_t f = 0, l = 0;
-    find_zeros(a, n, f, l);
+    find_zeros(array, size, f, l);
     if (f == l) throw "Один ноль в массиве";
     if (f + 1 == l) return;  // нечего дублировать
 
-    int* b = new int[n + l - f - 1];
+    int* b = new int[size + l - f - 1];
 
-    for (int i = 0; i <= f; i++)
-        b[i] = a[i];
+    for (size_t i = 0; i <= f; i++)
+        b[i] = array[i];
 
     int j = f + 1;
-    for (int i = j; i < l; i++, j += 2) {
-        b[j] = a[i];
-        b[j + 1] = a[i];
+    for (size_t i = j; i < l; i++, j += 2) {
+        b[j] = array[i];
+        b[j + 1] = array[i];
     }
 
-    for (int i = l; i < n; i++, j++)
-        b[j] = a[i];
+    for (size_t i = l; i < size; i++, j++)
+        b[j] = array[i];
 
-    assert(j == n + l - f - 1);
+    assert(j == size + l - f - 1);
 
-    n += l - f - 1;
-    delete[] a;
-    a = b;
+    size += l - f - 1;
+    delete[] array;
+    array = b;
 }
 
-void read_from_text(const char* fname, int *&a, size_t &n)
+void read_from_text(const char* fname, int *&array, size_t &size)
 {
     assert(fname != nullptr);
     using namespace std;
@@ -65,24 +65,24 @@ void read_from_text(const char* fname, int *&a, size_t &n)
 
     if (!fin.is_open()) throw "Не найден указанный файл";
 
-    if (!(fin >> n)) // если первый элемент файла - не число
+    if (!(fin >> size)) // если первый элемент файла - не число
         throw "Неверный формат входного файла";
 
-    a = new int[n];
-    int i = 0;
-    while (i < n && fin >> a[i++]);
+    array = new int[size];
+    size_t i = 0;
+    while (i < size && fin >> array[i++]);
 
     // если чило элементов в файле меньше указанного размера
-    if (i != n) {
-        n = i - 1;
+    if (i != size) {
+        size = i - 1;
         // сохраняем реальные данные
-        int *b = new int[n];
-        for (int j = 0; j < n; ++j)
-            b[j] = a[j];
+        int *b = new int[size];
+        for (size_t j = 0; j < size; ++j)
+            b[j] = array[j];
         // удаляем слишком длинный массив
 
-        delete[] a;
-        a = b;
+        delete[] array;
+        array = b;
     }
 
     fin.close();

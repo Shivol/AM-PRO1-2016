@@ -38,7 +38,7 @@ tlist::datatype *create_test_data(const char* filename, size_t length);
 // Тест для функции
 // tlist::datatype *create_test_data(const char* filename, size_t length)
 // Сравнивает значение в файле с возращаемым массивом.
-bool tst_create_test_data();
+bool test_create_test_data();
 
 // Тест на равенство массива и списка
 // Входные параметры:

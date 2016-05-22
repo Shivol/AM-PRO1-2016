@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void read_from_text( ifstream &fin, matrix a, size_t &rows, size_t &cols)
+void read_from_text( ifstream &fin, matrix mat, size_t &rows, size_t &cols)
 {
     assert(fin); // проверка на корректность файлового потока
 
@@ -16,15 +16,15 @@ void read_from_text( ifstream &fin, matrix a, size_t &rows, size_t &cols)
     if (rows > MAX_ROWS || cols > MAX_COLS)
         throw "Невозможно считать матрицу такого размера";
 
-    for (int i = 0; i < rows; ++i)
-        for (int j = 0; j < cols; ++j)
-            if (!(fin >> a[i][j]))
+    for (size_t i = 0; i < rows; ++i)
+        for (size_t j = 0; j < cols; ++j)
+            if (!(fin >> mat[i][j]))
                 throw "Неверный формат входного файла";
 
 }
 
 //
-void read_from_text(const char *fname, matrix a, size_t &rows, size_t &cols)
+void read_from_text(const char *fname, matrix mat, size_t &rows, size_t &cols)
 {
     assert(fname != nullptr);
 
@@ -32,30 +32,30 @@ void read_from_text(const char *fname, matrix a, size_t &rows, size_t &cols)
 
     if (!fin.is_open()) throw "Не найден указанный файл";
 
-    read_from_text(fin, a, rows, cols);
+    read_from_text(fin, mat, rows, cols);
 
     fin.close();
 }
 
 //
-void read_from_text(ifstream &fin, double **&a, size_t &rows, size_t &cols)
+void read_from_text(ifstream &fin, double **&mat, size_t &rows, size_t &cols)
 {
     assert(fin); // проверка на корректность файлового потока
 
     if (!(fin >> rows) || !(fin >> cols))
         throw "Неверный формат входного файла";
 
-    a = new double *[rows];
-    for (int i = 0; i < rows; ++i) {
-        a[i] = new double[cols]; // ыделяем память под очередную строку
-        for (int j = 0; j < cols; ++j)
+    mat = new double *[rows];
+    for (size_t i = 0; i < rows; ++i) {
+        mat[i] = new double[cols]; // ыделяем память под очередную строку
+        for (size_t j = 0; j < cols; ++j)
 
-            if (!(fin >> a[i][j])) { // если в файле недостаточно чисел
+            if (!(fin >> mat[i][j])) { // если в файле недостаточно чисел
                
                 // возможны утечки памяти!                
-                for (int k = 0; k <= i; ++k)
-                    delete[] a[k];
-                delete[] a;
+                for (size_t k = 0; k <= i; ++k)
+                    delete[] mat[k];
+                delete[] mat;
 
                 throw "Неверный формат входного файла";
             }
@@ -63,7 +63,7 @@ void read_from_text(ifstream &fin, double **&a, size_t &rows, size_t &cols)
 }
 
 //
-void read_from_text(const char *fname, double **&a, size_t &rows, size_t &cols)
+void read_from_text(const char *fname, double **&mat, size_t &rows, size_t &cols)
 {
     assert(fname != nullptr);
 
@@ -71,16 +71,16 @@ void read_from_text(const char *fname, double **&a, size_t &rows, size_t &cols)
 
     if (!fin.is_open()) throw "Не найден указанный файл";
 
-    read_from_text(fin, a, rows, cols);
+    read_from_text(fin, mat, rows, cols);
 
     fin.close();
 }
 
 //
-void delete_matrix(double ** const a, const size_t rows, const size_t cols)
+void delete_matrix(double ** const mat, const size_t rows, const size_t cols)
 {
-    assert(a != nullptr);
+    assert(mat != nullptr);
     for (size_t i = 0; i < rows; ++i)
-        delete[] a[i];
-    delete[] a;
+        delete[] mat[i];
+    delete[] mat;
 }

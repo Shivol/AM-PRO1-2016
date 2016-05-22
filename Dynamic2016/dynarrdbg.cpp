@@ -35,7 +35,7 @@ int main()
     try {
         read_from_text(fname, a, n);
         duplicate_between_zeros(a, n);
-        for (int i = 0; i < n; i++)
+        for (size_t i = 0; i < n; i++)
             cout << a[i] << ' ';
         cout << endl;
     }

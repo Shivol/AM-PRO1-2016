@@ -1,6 +1,7 @@
-/* test_l2.cpp
- * Реализация тестов для функций библиотеки func_l2.h
- */
+//
+// Лабораторная работа №2. Библиотека функций
+// test_l2.cpp
+//
 
 #include <iostream>
 #include <cmath>
@@ -9,11 +10,28 @@
 #include "func_l2.h"
 #include "test_l2.h"
 
-
 using namespace std;
 
-// Точность сравнения вещественных чисел
-const double precision = 1E-16;
+bool test_sqr(int number_of_tests)
+{
+    for (int i = 0; i < number_of_tests; i++) {
+        double a = rand() * (0.5 - (double)rand() / RAND_MAX);
+        double result = a*a;
+        assert(fabs(sqr(a) - result) < precision);
+    }
+
+    // Проверка запуска в режиме отладки (макрос _DEBUG)
+#ifdef _DEBUG
+
+    // Этот код будет скомпилирован только в режиме отладки
+    // std::cerr - стандартный поток вывода для ошибок
+    // по умолчанию выводит на консоль    
+    cerr << "test sqr: OK" << endl;
+#endif /* _DEBUG */
+
+    return true;
+}
+
 
 bool test_distance()
 {  
@@ -31,22 +49,25 @@ bool test_distance()
 
     // Тест 2 - отрезок иррациональной длины
     assert ( abs ( distance (x1,y1,x2,y2) - result) < precision);
-    
-    x1 = -2; y1 = -5;
-    x2 = -2; y2 = -5;
-    result = 0;
 
-     // Тест 3 - отрезок нулевой длины
-    assert ( abs ( distance (x1,y1,x2,y2) - result) < precision);
+    // Тест 3 - отрезок нулевой длины
+    // Опишите тест для отрезка нулевой длины
+    assert (0);
 
 // Проверка запуска в режиме отладки (макрос _DEBUG)
-#ifndef NDEBUG
+#ifdef _DEBUG
 
     // Этот код будет скомпилирован только в режиме отладки
     // std::cerr - стандартный поток вывода для ошибок
     // по умолчанию выводит на консоль    
-    cerr<<"distance test: OK"<<endl;      
-#endif /* NDEBUG */
+    cerr << "test distance: OK" << endl;
+#endif /* _DEBUG */
 
     return true;
+}
+
+bool test_full_func_l2()
+{
+    int number_of_tests = 100;
+    return test_sqr(number_of_tests) && test_distance();
 }

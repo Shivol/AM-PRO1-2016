@@ -2,6 +2,7 @@
 // Лабораторная работа №12. Структуры в динамической памяти
 // structs_dynamic.h 
 //
+
 #pragma once
 #include <cstdint>
 #include <iostream>

@@ -130,6 +130,6 @@ bool test_full_func_l3()
 {
     return test_swap() &&
         test_exp_of() &&
-        test_sum_prime_factors &&
+        test_sum_prime_factors() &&
         test_root();
 }

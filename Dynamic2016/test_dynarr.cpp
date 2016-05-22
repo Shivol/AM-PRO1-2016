@@ -57,7 +57,7 @@ bool test_duplicate_between_zeros()
         int result[] = { 1,0,1,1,0,1 };
         duplicate_between_zeros(a, n);
         assert(n == 6);
-        for (int i = 0; i < n; i++)
+        for (size_t i = 0; i < n; i++)
             assert(a[i] == result[i]);
         delete[] a;
     } {
@@ -66,7 +66,7 @@ bool test_duplicate_between_zeros()
         int result[] = { 1,0,1,1,1,1,1,1,0,1 };
         duplicate_between_zeros(a, n);
         assert(n == 10);
-        for (int i = 0; i < n; i++)
+        for (size_t i = 0; i < n; i++)
             assert(a[i] == result[i]);
         delete[] a;
     } {
@@ -75,7 +75,7 @@ bool test_duplicate_between_zeros()
         int result[] = { 1,0,1,1,0,0,1,1,0,1 };
         duplicate_between_zeros(a, n);
         assert(n == 10);
-        for (int i = 0; i < n; i++)
+        for (size_t i = 0; i < n; i++)
             assert(a[i] == result[i]);
         delete[] a;
     }

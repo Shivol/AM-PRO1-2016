@@ -3,6 +3,7 @@
 // main.cpp
 //
 #include <iostream>
+#include <fstream>
 #include "test_text.h"
 #include "text.h"
 

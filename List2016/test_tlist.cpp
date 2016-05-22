@@ -42,7 +42,7 @@ bool test_create_test_data()
     ifstream fin(tmpname);
     assert(fin.is_open());
 
-    int i = 0;
+    size_t i = 0;
     while (fin.good() && i < n) {
         tlist::datatype x;
         if (fin >> x) {  // если чтение успешно
