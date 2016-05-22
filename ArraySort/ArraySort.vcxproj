@@ -119,7 +119,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="solutions.cpp" />
     <ClCompile Include="sort_time.cpp" />
     <ClCompile Include="test_sort.cpp" />
   </ItemGroup>
