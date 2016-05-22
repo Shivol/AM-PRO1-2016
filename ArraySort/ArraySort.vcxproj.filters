@@ -24,7 +24,7 @@
     <ClCompile Include="sort_time.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="solutions.cpp">
+    <ClCompile Include="solution.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
