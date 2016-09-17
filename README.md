@@ -1,5 +1,5 @@
 # AM-PRO1-2016
-Assignments for [SFEDU Applied Mathematics programm Proggramming1](http://edu.mmcs.sfedu.ru/course/view.php?id=178)
+Assignments for [SFEDU Applied Mathematics programme Proggramming1](http://edu.mmcs.sfedu.ru/course/view.php?id=178)
 - [Лабораторная №1](https://github.com/Shivol/AM-PRO1-2016/tree/master/Hello2016)
 - [Лабораторная №2](https://github.com/Shivol/AM-PRO1-2016/tree/master/Funks2016)
 - [Лабораторная №3](https://github.com/Shivol/AM-PRO1-2016/tree/master/FuncPointers2016)
